@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1365088572801919764, guid: 1bb4aad4a18834ac49ba99185f0b9ee9, type: 3}
       propertyPath: m_Name
-      value: ConversationNavigationView
+      value: ConversationsNavigationView
       objectReference: {fileID: 0}
     - target: {fileID: 1559761051794917515, guid: 1bb4aad4a18834ac49ba99185f0b9ee9, type: 3}
       propertyPath: m_text
@@ -114,6 +114,10 @@ PrefabInstance:
     - target: {fileID: 2646602071568606045, guid: 1bb4aad4a18834ac49ba99185f0b9ee9, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294757408732313317, guid: 1bb4aad4a18834ac49ba99185f0b9ee9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bb4aad4a18834ac49ba99185f0b9ee9, type: 3}
