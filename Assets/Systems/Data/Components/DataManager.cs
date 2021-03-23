@@ -8,7 +8,8 @@ namespace ChatApp.Data {
     {
         public const string pathToData = "sample_data";
             
-        private ConversationsData conversationsData;
+        // TODO: make private
+        public ConversationsData conversationsData;
 
         protected override void Awake()
         {
@@ -25,6 +26,13 @@ namespace ChatApp.Data {
     }
 
     [Serializable]
+    public class MessageData
+    {
+        public string body;
+        public string time;
+    }
+
+    [Serializable]
     public class PersonData
     {
         public string firstName;
@@ -36,6 +44,8 @@ namespace ChatApp.Data {
     public class ConversationData
     {
         public PersonData person;
+        public string lastMessageTime;
+        public List<MessageData> messages;
     }
 
     [Serializable]
