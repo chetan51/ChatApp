@@ -25,7 +25,7 @@ namespace ChatApp.Conversations {
         public void OnConversationPressed()
         {
             MessageList messageList = Instantiate(messageListPrefab);
-            messageList.Initialize(conversationData.messages, conversationData.person); // TODO: fetch from DataManager by conversation ID
+            messageList.Initialize(conversationData.id);
             NavigationView navigationView = NavigationManager.Instance.SpawnAndPush("Messages");
             navigationView.AddToContent(messageList.gameObject);
         }

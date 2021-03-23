@@ -6,17 +6,53 @@ using UnityEngine.UI;
 
 namespace ChatApp.Messages {
 
-    public class MessageList : Behavior {
+    public class MessageList : Behavior
+    {
+        private static int numConversationsPerPage = 25;
+            
         [SerializeField] private GameObject content;
         [SerializeField] private RectTransform rectTransform;
         [SerializeField] private Message messagePrefab;
 
+        private string conversationId;
         private PersonData personData;
+
+        private int startIndex = 0;
         
-        public void Initialize(List<MessageData> messages, PersonData personData)
+        public void Initialize(string conversationId)
         {
-            this.personData = personData;
+            this.conversationId = conversationId;
+
+            LoadPerson();
+            LoadMessages();
+        }
+
+        public void OnShowMorePressed()
+        {
+            LoadMessages();
+        }
+
+        private void LoadPerson()
+        {
+            personData = DataManager.Instance.GetPersonForConversationWithId(conversationId);
+
+            if (personData == null)
+            {
+                Debug.LogError(string.Format("Couldn't load person for conversation {0}", conversationId));
+            }
+        }
+
+        private void LoadMessages()
+        {
+            List<MessageData> messages = DataManager.Instance.GetMessagesForConversationWithId(conversationId, startIndex, numConversationsPerPage);
+
+            if (messages == null)
+            {
+                Debug.LogError(string.Format("Couldn't load messages for conversation {0}", conversationId));
+                return;
+            }
             
+            startIndex += numConversationsPerPage;
             AddMessages(messages);
         }
 
