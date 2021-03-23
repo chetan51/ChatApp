@@ -21,6 +21,13 @@ namespace ChatApp.Navigation {
 
         public void Push(NavigationView view)
         {
+            // hide top view
+            if (navigationViews.Count > 0)
+            {
+                navigationViews.Peek().gameObject.SetActive(false);
+            }
+            
+            // push new view to top
             transform.SetParent(view.transform, false);
             navigationViews.Push(view);
         }
@@ -29,8 +36,15 @@ namespace ChatApp.Navigation {
         {
             if (navigationViews.Count == 0) return;
 
+            // remove top view
             NavigationView view = navigationViews.Pop();
-            Destroy(view);
+            Destroy(view.gameObject);
+            
+            // show current top view
+            if (navigationViews.Count > 0)
+            {
+                navigationViews.Peek().gameObject.SetActive(true);
+            }
         }
     }
 
