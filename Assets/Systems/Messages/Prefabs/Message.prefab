@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6316853556510783889}
   - component: {fileID: 4412290678483821893}
   - component: {fileID: 6392987872132952143}
+  - component: {fileID: 8829210508417314375}
   m_Layer: 5
   m_Name: Message
   m_TagString: Untagged
@@ -79,6 +80,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &8829210508417314375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978529012348432646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d84b7b976c8f4214afc67013af22497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 495382896923660898}
+  timeText: {fileID: 6554899149846839961}
+  bodyText: {fileID: 8908550082703237859}
 --- !u!1 &2934226326311326573
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +182,7 @@ GameObject:
   - component: {fileID: 8136028038620097573}
   - component: {fileID: 6554899149846839961}
   m_Layer: 5
-  m_Name: LastMessageTime
+  m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

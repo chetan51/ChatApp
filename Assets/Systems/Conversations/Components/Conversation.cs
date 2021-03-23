@@ -1,4 +1,6 @@
 ﻿using ChatApp.Data;
+using ChatApp.Messages;
+using ChatApp.Navigation;
 using TMPro;
 using UnityEngine;
 
@@ -8,16 +10,24 @@ namespace ChatApp.Conversations {
     {
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI lastMessageTimeText;
+        [SerializeField] private MessageList messageListPrefab;
+
+        private ConversationData conversationData;
 
         public void Initialize(ConversationData data)
         {
+            conversationData = data;
+            
             nameText.text = string.Format("{0} {1}", data.person.firstName, data.person.lastName);
             lastMessageTimeText.text = data.lastMessageTime;
         }
 
         public void OnConversationPressed()
         {
-            Debug.Log("TODO: conversation pressed");
+            MessageList messageList = Instantiate(messageListPrefab);
+            messageList.Initialize(conversationData.messages, conversationData.person); // TODO: fetch from DataManager by conversation ID
+            NavigationView navigationView = NavigationManager.Instance.SpawnAndPush("Messages");
+            navigationView.AddToContent(messageList.gameObject);
         }
 
         public void OnPhotoPressed()
