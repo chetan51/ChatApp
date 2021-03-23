@@ -1,17 +1,18 @@
 ﻿using ChatApp.Navigation;
 using UnityEngine;
+using ChatApp.Conversations;
 
 namespace ChatApp.Startup {
 
     public class StartupManager : Singleton<StartupManager>
     {
-        [SerializeField] private Conversations.Conversations conversationsPrefab;
+        [SerializeField] private ConversationList conversationListPrefab;
         
         private void Start()
         {
             NavigationView view = NavigationManager.Instance.SpawnAndPush("Conversations", hasBackButton:false);
-            Conversations.Conversations conversations = Instantiate(conversationsPrefab);
-            view.AddToContent(conversations.gameObject);
+            ConversationList conversationList = Instantiate(conversationListPrefab);
+            view.AddToContent(conversationList.gameObject);
         }
     }
 

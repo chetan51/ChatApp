@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b37cb33c1784794bc4b63498f6f0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conversationsPrefab: {fileID: 1317594744212088649, guid: eabc7ebcb246641d69f712973791b084, type: 3}
+  conversationListPrefab: {fileID: 1317594744212088649, guid: eabc7ebcb246641d69f712973791b084, type: 3}

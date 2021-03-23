@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ChatApp.Conversations {
 
-    public class Conversations : Behavior
+    public class ConversationList : Behavior
     {
         [SerializeField] private GameObject content;
         [SerializeField] private Conversation conversationPrefab;
