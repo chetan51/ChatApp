@@ -16,16 +16,15 @@ namespace ChatApp.Messages {
         [SerializeField] private GameObject showMoreObj;
 
         private string conversationId;
-        private PersonData personData;
+        private List<PersonData> personsData;
 
         private int startIndex = 0;
         
         public void Initialize(string conversationId)
         {
             this.conversationId = conversationId;
-
-            LoadPerson();
-            LoadMessages();
+            
+            LoadInitialData();
         }
 
         public void OnShowMorePressed()
@@ -33,13 +32,19 @@ namespace ChatApp.Messages {
             LoadMessages();
         }
 
-        private void LoadPerson()
+        private void LoadInitialData()
         {
-            personData = DataManager.Instance.GetPersonForConversationWithId(conversationId);
+            LoadPersons();
+            LoadMessages();
+        }
 
-            if (personData == null)
+        private void LoadPersons()
+        {
+            personsData = DataManager.Instance.GetPersonsForConversationWithId(conversationId);
+
+            if (personsData == null)
             {
-                Debug.LogError(string.Format("Couldn't load person for conversation {0}", conversationId));
+                Debug.LogError(string.Format("Couldn't load persons for conversation {0}", conversationId));
             }
         }
 
@@ -68,7 +73,7 @@ namespace ChatApp.Messages {
             foreach (MessageData messageData in messages)
             {
                 Message message = Instantiate(messagePrefab, content.transform);
-                message.Initialize(messageData, personData);
+                message.Initialize(messageData, personsData[messageData.personIndex]);
             }
             
             // rebuild layout to update nested content size fitters

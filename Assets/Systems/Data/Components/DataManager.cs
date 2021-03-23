@@ -39,7 +39,7 @@ namespace ChatApp.Data {
             return conversation.messages.GetRange(start, count);
         }
 
-        public PersonData GetPersonForConversationWithId(string conversationId)
+        public List<PersonData> GetPersonsForConversationWithId(string conversationId)
         {
             ConversationData conversation = conversationsData.conversations.Find(c => c.id == conversationId);
             
@@ -48,7 +48,7 @@ namespace ChatApp.Data {
                 return null;
             }
 
-            return conversation.person;
+            return conversation.persons;
         }
 
         protected override void Awake()
@@ -68,6 +68,7 @@ namespace ChatApp.Data {
     [Serializable]
     public class MessageData
     {
+        public int personIndex;
         public string body;
         public string time;
     }
@@ -84,7 +85,7 @@ namespace ChatApp.Data {
     public class ConversationData
     {
         public string id;
-        public PersonData person;
+        public List<PersonData> persons;
         public string lastMessageTime;
         public List<MessageData> messages;
     }

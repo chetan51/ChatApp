@@ -17,8 +17,17 @@ namespace ChatApp.Conversations {
         public void Initialize(ConversationData data)
         {
             conversationData = data;
+
+            if (data.persons.Count == 0)
+            {
+                Debug.LogError("Invalid conversation; not enough persons found.");
+                return;
+            }
             
-            nameText.text = string.Format("{0} {1}", data.person.firstName, data.person.lastName);
+            // show info for first person in conversation
+            // (by convention, the first person is the main other person in the conversation)
+            PersonData mainPerson = data.persons[0];
+            nameText.text = string.Format("{0} {1}", mainPerson.firstName, mainPerson.lastName);
             lastMessageTimeText.text = data.lastMessageTime;
         }
 
