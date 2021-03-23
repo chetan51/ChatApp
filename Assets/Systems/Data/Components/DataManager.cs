@@ -7,9 +7,13 @@ namespace ChatApp.Data {
     public class DataManager : Singleton<DataManager>
     {
         public const string pathToData = "sample_data";
-            
-        // TODO: make private
-        public ConversationsData conversationsData;
+
+        private ConversationsData conversationsData;
+
+        public ConversationsData GetConversations()
+        {
+            return conversationsData;
+        }
 
         protected override void Awake()
         {
