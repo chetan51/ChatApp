@@ -14,6 +14,16 @@ namespace ChatApp.Conversations {
             nameText.text = string.Format("{0} {1}", data.person.firstName, data.person.lastName);
             lastMessageTimeText.text = data.lastMessageTime;
         }
+
+        public void OnConversationPressed()
+        {
+            Debug.Log("TODO: conversation pressed");
+        }
+
+        public void OnPhotoPressed()
+        {
+            Debug.Log("TODO: photo pressed");
+        }
     }
 
 }
