@@ -24,6 +24,18 @@ namespace ChatApp.Data {
                 return null;
             }
 
+            // make sure count doesn't exceed the remaining number of messages
+            int end = Mathf.Min(start + count, conversation.messages.Count);
+            if (start + count > end)
+            {
+                count = Mathf.Max(end - start, 0);
+            }
+            if (count == 0)
+            {
+                return new List<MessageData>();
+            }
+
+            // NOTE: messages are fetched from backend in reverse chronological order
             return conversation.messages.GetRange(start, count);
         }
 

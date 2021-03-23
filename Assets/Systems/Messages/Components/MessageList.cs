@@ -8,11 +8,12 @@ namespace ChatApp.Messages {
 
     public class MessageList : Behavior
     {
-        private static int numConversationsPerPage = 25;
+        private static int numConversationsPerPage = 40;
             
         [SerializeField] private GameObject content;
         [SerializeField] private RectTransform rectTransform;
         [SerializeField] private Message messagePrefab;
+        [SerializeField] private GameObject showMoreObj;
 
         private string conversationId;
         private PersonData personData;
@@ -50,6 +51,12 @@ namespace ChatApp.Messages {
             {
                 Debug.LogError(string.Format("Couldn't load messages for conversation {0}", conversationId));
                 return;
+            }
+            
+            // hide show more button if there are no more messages to load
+            if (messages.Count < numConversationsPerPage)
+            {
+                showMoreObj.SetActive(false);
             }
             
             startIndex += numConversationsPerPage;

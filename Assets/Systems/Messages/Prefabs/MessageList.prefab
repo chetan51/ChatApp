@@ -160,6 +160,7 @@ MonoBehaviour:
   content: {fileID: 1594977645211265266}
   rectTransform: {fileID: 1860878234082923139}
   messagePrefab: {fileID: 8829210508417314375, guid: 05ffe0d45779b466f8f1e6587fcc66d0, type: 3}
+  showMoreObj: {fileID: 5941101352477653818}
 --- !u!1 &5941101352477653818
 GameObject:
   m_ObjectHideFlags: 0
