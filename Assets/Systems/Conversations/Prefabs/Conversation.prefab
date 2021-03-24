@@ -55,6 +55,7 @@ MonoBehaviour:
   nameText: {fileID: 495382896923660898}
   lastMessageTimeText: {fileID: 6554899149846839961}
   messageListPrefab: {fileID: 6653281953312379496, guid: 8d4e4aa18af2342ba82975791c8fb4ee, type: 3}
+  profilePrefab: {fileID: 5321061484068299981, guid: 62e9657cedac7452a8238adc59540e9f, type: 3}
 --- !u!1 &2934226326311326573
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using ChatApp.Data;
 using ChatApp.Messages;
 using ChatApp.Navigation;
+using ChatApp.Profiles;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace ChatApp.Conversations {
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI lastMessageTimeText;
         [SerializeField] private MessageList messageListPrefab;
+        [SerializeField] private Profile profilePrefab;
 
         private ConversationData conversationData;
 
@@ -41,7 +43,16 @@ namespace ChatApp.Conversations {
 
         public void OnPhotoPressed()
         {
-            Debug.Log("TODO: photo pressed");
+            if (conversationData.persons.Count == 0) {
+                Debug.LogError("Couldn't open profile; invalid number of persons in conversation");
+                return;
+            }
+            
+            PersonData mainPerson = conversationData.persons[0];
+            Profile profile = Instantiate(profilePrefab);
+            profile.Initialize(mainPerson);
+            NavigationView navigationView = NavigationManager.Instance.SpawnAndPush("Profile");
+            navigationView.AddToContent(profile.gameObject);
         }
     }
 
