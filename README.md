@@ -4,7 +4,7 @@ Simple chat app prototype
 
 # Tradeoffs
 
-- Since https://next.json-generator.com doesn't support generating more than 100 elements within a list, and I used it to generate the sample data, each conversation has a total of 100 messages, and the message list loads 40 at a time.
+- I used https://next.json-generator.com/Eko-yNmE5 to generate the sample data. Since the generator doesn't support generating more than 100 elements within a list, each conversation has a total of 100 messages, and the message list loads 40 at a time.
 - Due to time constraints, I decided to use synchronous calls to DataManager to simulate fetching data from backend. For a more realistic simulation of fetching data from backend, those calls should be asynchronous.
 - Due to time constraints, I skipped implementing loading of profile photos from photo URLs. If you'd prefer that I implement this feature for completeness, please let me know and I'll be happy to take a bit more time to do so.
 - I designed the data model for Conversations to have a list of Persons who are participating in the Conversation, with the first Person always being the user's friend, and the second person being the user themselves.
