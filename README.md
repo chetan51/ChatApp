@@ -10,7 +10,7 @@ Simple chat app prototype
 - I designed the data model for Conversations to have a list of Persons who are participating in the Conversation, with the first Person always being the user's friend, and the second person being the user themselves.
   - Each Message has a Person Index referring to the Person in the Conversation who sent that Message.
   - I did this for simplicity and speed of implementation. Alternately, we could assign a unique ID to each person, reference the Person in the Message by ID, and fetch Persons by ID when loading the message list (ensuring we cache loaded Persons so that we don't duplicate requests.)
-- I kept comments to a minimum for speed of implementation. I could add more comments for additional clarity.
+- I kept comments to a minimum for speed of implementation. I would add more comments for additional clarity.
  
 # Follow Ups
 - [ ] Implement loading of profile photos from photo URLs (maintaining a LRU cache of loaded photos to avoid duplicate requests)
